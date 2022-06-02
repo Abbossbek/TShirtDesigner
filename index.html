@@ -20,7 +20,12 @@
     <link type="text/css" rel="stylesheet" href="css/jquery.miniColors.css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    <script type="text/javascript">
+    <script >
+
+        console.log(parent.document.body.innerHTML)
+        parent.document.getElementsByTagName('iframe')[0].scrolling = "no"
+
+        console.log(parent.document.body.innerHTML)
     </script>
     <style type="text/css">
         .footer {
@@ -269,7 +274,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script>
-        parent.document.getElementsByTagName('iframe')[0].scrolling = "no";
         var valueSelect = $("#tshirttype").val();
         $("#tshirttype").change(function () {
             valueSelect = $(this).val();
