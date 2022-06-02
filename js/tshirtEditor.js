@@ -70,8 +70,27 @@ var line4;
             canvas.add(textSample);	
             canvas.item(canvas.item.length-1).hasRotatingPoint = true;    
             $("#texteditor").css('display', 'block');
-            $("#imageeditor").css('display', 'block');
-	  	};
+			$("#imageeditor").css('display', 'block');
+
+
+		};
+		  document.getElementById('fileToUpload').addEventListener("change", function (e) {
+			  var file = e.target.files[0];
+			  var reader = new FileReader();
+			  reader.onload = function (f) {
+				  var data = f.target.result;
+				  fabric.Image.fromURL(data, function (img) {
+					  console.log(img);
+					  img.scaleToWidth(100);
+					  img.scaleToHeight(100);
+					  canvas.add(img);
+				  });
+			  };
+			  reader.readAsDataURL(file);
+		  });
+
+
+          
 	  	$("#text-string").keyup(function(){	  		
 	  		var activeObject = canvas.getActiveObject();
 		      if (activeObject && activeObject.type === 'text') {
