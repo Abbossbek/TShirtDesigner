@@ -80,13 +80,22 @@ var line4;
 			  reader.onload = function (f) {
 				  var data = f.target.result;
 				  fabric.Image.fromURL(data, function (img) {
-					  console.log(img);
+					  //console.log(img);
+					  img.set({
+						  angle: 0,
+						  padding: 0,
+						  top: 100,
+                          left: 100,
+						  hasRotatingPoint: true
+					  });
 					  img.scaleToWidth(100);
 					  img.scaleToHeight(100);
 					  canvas.add(img);
 				  });
 			  };
 			  reader.readAsDataURL(file);
+
+			  $("#fileToUpload").val('');
 		  });
 
 
@@ -95,7 +104,6 @@ var line4;
 	  		var activeObject = canvas.getActiveObject();
 		      if (activeObject && activeObject.type === 'text') {
 		    	  activeObject.text = this.value;
-		    	  canvas.renderAll();
 		      }
 	  	});
 	  	$(".img-polaroid").click(function(e){
