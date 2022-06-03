@@ -266,7 +266,6 @@
 
         });
         window.addEventListener('resize', function (event) {
-            console.log(document.body.scrollHeight);
             window.parent.postMessage(document.body.scrollHeight + "px", '*')
 
         });
